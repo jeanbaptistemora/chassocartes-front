@@ -166,19 +166,22 @@
                     // Card HTML Construction
                     col.innerHTML = `
                         <div class="card">
-                            ${card.image_url ? `
-                                <div class="card-image">
-                                    <figure class="image is-4by3">
-                                        <img src="${card.image_url}" alt="${card.title}">
-                                    </figure>
-                                </div>
+                            ${card.status === 'FOUND' ? `
+                                ${card.image_url ? `
+                                    <div class="card-image">
+                                        <figure class="image is-4by3">
+                                            <img src="${card.image_url}" alt="${card.title}">
+                                        </figure>
+                                    </div>
+                                ` : ''}
                             ` : ''}
                             <div class="card-content">
                                 <div class="content-body">
                                     <div class="is-flex is-justify-content-space-between is-align-items-start mb-3">
                                         <p class="title is-4 mb-0">${card.title}</p>
                                         <span class="tag ${statusColor} is-light">
-                                            <i class="fa-solid ${icon} mr-1"></i> ${card.status}
+                                            <i class="fa-solid ${icon} mr-1"></i>
+                                                ${card.status === 'FOUND' ? "FOUND" : "NOT FOUND"}
                                         </span>
                                     </div>
                                     <p class="subtitle is-6 has-text-grey-dark">
