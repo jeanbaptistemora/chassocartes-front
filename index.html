@@ -306,11 +306,13 @@
                                     </p>
                                 </div>
 
-                                <div class="finder-social-link">
-                                    <a href="${card.social_link}" target="_blank" class="" onclick="event.stopPropagation()">
-                                        <i class="fa-solid fa-link"></i>
-                                    </a>
-                                </div>
+                                ${card.social_link ? `
+                                    <div class="finder-social-link">
+                                        <a href="${card.social_link}" target="_blank" class="" onclick="event.stopPropagation()">
+                                            <i class="fa-solid fa-link"></i>
+                                        </a>
+                                    </div>
+                                ` : ``}
 
                                 <div class="mt-5">
                                     ${isFound ? `
